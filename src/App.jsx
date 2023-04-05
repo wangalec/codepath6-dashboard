@@ -1,10 +1,7 @@
 import { useEffect, useState } from 'react'
+import { Link } from "react-router-dom";
+
 import './App.css'
-
-
-//3 summary stats
-//search function
-//2+ filters
 
 function App() {
 
@@ -73,7 +70,11 @@ function App() {
           {data && Object.entries(filteredData).map(([item]) => (
             <>
               <h2> {filteredData[item].name} </h2>
-              <h2> Type: {filteredData[item].brewery_type} </h2>
+              <h3> Type: {filteredData[item].brewery_type} </h3>
+              <Link
+                to = {`/detail/${filteredData[item].id}`}
+              > Click for more detail
+              </Link>
             </>
           ))
           }
